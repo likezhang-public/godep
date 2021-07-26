@@ -159,6 +159,8 @@ func (ctx *Dot) WriteClusters(graph *pkggraph.Graph) {
 
 		if print {
 			fmt.Fprintf(ctx.out, "subgraph %q {\n", "cluster_"+tree.Path)
+			fmt.Fprintf(ctx.out, `    bgcolor="#FFFFAA"`)
+
 			if tree.Package != nil {
 				isCluster[tree.Package] = true
 				fmt.Fprintf(ctx.out, "    %v [label=\"\" tooltip=\"%v\" shape=circle %v rank=0];\n", pkgID(p), tree.Path, ctx.colorOf(p))
